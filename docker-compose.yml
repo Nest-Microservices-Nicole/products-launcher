@@ -18,7 +18,7 @@ services:
     command: npm run start:dev
     environment:
       - PORT=3003
-      - NATS_SERVERS=nats://products-app-nats-server-1:4222
+      - NATS_SERVERS=nats://nats-server:4222
 
   products-ms:
     build: ./products-ms
@@ -27,7 +27,7 @@ services:
     command: npm run start:dev
     environment:
       - PORT=3001
-      - NATS_SERVERS=nats://products-app-nats-server-1:4222
+      - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=${MYSQL_DB}
 
   orders-microservice:
@@ -39,7 +39,7 @@ services:
     command: npm run start:dev
     environment:
       - PORT=3002
-      - NATS_SERVERS=nats://products-app-nats-server-1:4222
+      - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=postgresql://postgres:123456@ordersdb:5432/ordersdb?schema=public
 
 
